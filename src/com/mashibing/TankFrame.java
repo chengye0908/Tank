@@ -6,11 +6,14 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TankFrame extends Frame{
-	Tank myTk = new Tank(200, 200, Dir.UP);
-	Bullet bt = new Bullet(200,200,Dir.UP);
-	private static final int GAME_WIDTH = 800,GAME_HEIGHT = 600;
+	Tank myTk = new Tank(200, 200, Dir.UP,this);
+	//Bullet bt = new Bullet(200,200,Dir.UP);
+	List<Bullet> bulletList = new ArrayList<>();
+	int GAME_WIDTH = 800,GAME_HEIGHT = 600;
 	//构造方法, 创建窗口
 	public TankFrame() {
 		this.setSize(GAME_WIDTH, GAME_HEIGHT);//设置窗口大小
@@ -32,9 +35,11 @@ public class TankFrame extends Frame{
 	 */
 	@Override
 	public void paint(Graphics g) {
-		
+		g.drawString("子弹数量："+bulletList.size(),60,80);
 		myTk.paint(g);//调用tank类画一个坦克
-		bt.paint(g);//调用tank画一个子弹
+		for(int i = 0; i < bulletList.size(); i++){//循环画子弹
+			bulletList.get(i).paint(g);
+		}
 	}
 	
 	/**
@@ -67,6 +72,9 @@ public class TankFrame extends Frame{
 				break;
 			case KeyEvent.VK_DOWN:
 				bD = true;
+				break;
+			case KeyEvent.VK_CONTROL:
+				myTk.fire();
 				break;
 			default:
 				break;

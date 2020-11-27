@@ -15,7 +15,7 @@ public class T {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			tf.repaint();//ÖØÐÂ»­tank
+			tf.repaint();
 		}
 
 	}
