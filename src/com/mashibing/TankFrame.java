@@ -57,7 +57,7 @@ public class TankFrame extends Frame{
 			
 		}
 
-
+		//坦克移动方法
 		private void move(int key) {
 			
 			switch(key) {
@@ -79,7 +79,8 @@ public class TankFrame extends Frame{
 			default:
 				break;
 			}
-			setMainTankDir();
+
+			setMainTankDir();//设置主坦克方向
 			
 		}
 

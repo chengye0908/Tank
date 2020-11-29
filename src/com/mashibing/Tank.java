@@ -15,7 +15,7 @@ public class Tank {
 	public boolean isMoving() {
 		return moving;
 	}
-
+	ResoureMgr resoure = null;
 	public void setMoving(boolean moving) {
 		this.moving = moving;
 	}
@@ -42,7 +42,25 @@ public class Tank {
 	 */
 	public void paint(Graphics g) {
 		//画一个坦克
-		g.fillRect(x, y, 60, 60);
+		//g.fillRect(x, y, 60, 60);
+		switch(dir){
+			case LEFT:
+				g.drawImage(resoure.tankL,x,y,null);
+				break;
+			case RIGHT:
+				g.drawImage(resoure.tankR,x,y,null);
+				break;
+			case DOWN:
+				g.drawImage(resoure.tankD,x,y,null);
+				break;
+			case UP:
+				g.drawImage(resoure.tankU,x,y,null);
+				break;
+		}
+
+
+
+
 		if(!moving) return;
 		switch(dir) {
 		case LEFT:
@@ -61,7 +79,6 @@ public class Tank {
 	}
 
 	public void fire() {
-		System.out.println("发射子弹");
 		tf.bulletList.add(new Bullet(this.x,this.y,this.dir,tf));
 	}
 }
