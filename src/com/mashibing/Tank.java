@@ -8,6 +8,8 @@ import java.awt.Graphics;
  */
 public class Tank {
 	private int x, y;
+	public static int HEIGHT = ResoureMgr.tankD.getHeight();//获取坦克高度
+	public static int WIDTH = ResoureMgr.tankD.getWidth();//获取坦克宽度
 	private Dir dir = Dir.UP;
 	private final static int SPEED = 10;
 	private boolean moving = false;
@@ -81,6 +83,8 @@ public class Tank {
 	}
 
 	public void fire() {
-		tf.bulletList.add(new Bullet(this.x,this.y,this.dir,tf));
+		int bX = this.x + Tank.WIDTH/2 - Bullet.WIDTH/2;
+		int bY = this.y + Tank.HEIGHT/2 - Bullet.HEIGHT/2;
+		tf.bulletList.add(new Bullet(bX,bY,this.dir,tf));
 	}
 }
