@@ -43,6 +43,8 @@ public class Tank {
 	public void paint(Graphics g) {
 		//»­Ò»¸öÌ¹¿Ë
 		//g.fillRect(x, y, 60, 60);
+	//	g.drawImage(ResoureMgr.tankL,x,y,null);
+
 		switch(dir){
 			case LEFT:
 				g.drawImage(resoure.tankL,x,y,null);

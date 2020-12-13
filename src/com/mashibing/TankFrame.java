@@ -1,7 +1,6 @@
 package com.mashibing;
 
-import java.awt.Frame;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
@@ -20,6 +19,7 @@ public class TankFrame extends Frame{
 		this.setTitle("tank war");//设置标题
 		this.setResizable(false);//设置窗口是否可移动
 		this.setVisible(true);//设置窗口是否显示
+		this.setBackground(Color.BLACK);
 		//添加window监听器, 关闭窗口
 		this.addWindowListener(new WindowAdapter() {
 			@Override
@@ -36,6 +36,7 @@ public class TankFrame extends Frame{
 	@Override
 	public void paint(Graphics g) {
 		g.drawString("子弹数量："+bulletList.size(),60,80);
+		g.setColor(Color.GREEN);
 		myTk.paint(g);//调用tank类画一个坦克
 		for(int i = 0; i < bulletList.size(); i++){//循环画子弹
 			bulletList.get(i).paint(g);
